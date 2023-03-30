@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>Resume Generator</title>
+  </head>
+  <body>
+    <!-- here goes the html code -->
+    <div class="container" id="cv-form">
+      <div class="text-center  mt-3">
+        <h1>Resume Generator</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Personal Information</h3>
+          <div class="form-group">
+            <label for="nameField">Your Name</label>
+            <input
+              type="text"
+              id="nameField"
+              class="form-control"
+              placeholder="Enter Here"
+            />
+          </div>
+
+          <div class="form-group mt-4">
+            <label for="contactField">Your Contact Number</label>
+            <input
+              type="text"
+              id="contactField"
+              class="form-control"
+              placeholder="Enter Here"
+            />
+          </div>
+
+          <div class="form-group mt-4">
+            <label for="addressField">Your Address</label>
+            <textarea
+              type="text"
+              id="addressField"
+              class="form-control"
+              placeholder="Enter Here"
+              rows="10"
+            ></textarea>
+          </div>
+
+
+          <div class="form-group mt-5">
+            <label for="">Select Your Photo</label>
+            <input id="imgField" type="file" class="form-control">
+          </div>
+
+          <p class="text-secondary my-3">Important Links</p>
+
+          <div class="form-group mt-4">
+            <label for="fbField">Facebook</label>
+            <input
+              type="text"
+              id="fbField"
+              class="form-control"
+              placeholder="Enter Here"
+            />
+          </div>
+
+          <div class="form-group mt-4">
+            <label for="igField">Instagram</label>
+            <input
+              type="text"
+              id="igField"
+              class="form-control"
+              placeholder="Enter Here"
+            />
+          </div>
+
+          <div class="form-group my-4">
+            <label for="linkedinField">Linkedin</label>
+            <input
+              type="text"
+              id="linkedinField"
+              class="form-control"
+              placeholder="Enter Here"
+            />
+          </div>
+        </div>
+        <div class="col-md-6 mt-md-0 mt-5">
+          <h3>Professional Information</h3>
+
+          <div class="form-group">
+            <label for="">Objective</label>
+            <textarea
+              type="text"
+              class="form-control"
+              placeholder="Enter Here"
+              rows="2"
+              id="objectiveField"
+            ></textarea>
+          </div>
+
+          <div class="form-group mt-2" id="we">
+            <label for="">Work Experience</label>
+            <textarea
+              type="text"
+              class="form-control weField" 
+              placeholder="Enter Here"
+              rows="2"
+            ></textarea>
+
+            <!-- new textarea -->
+
+            <div class="container text-center mt-3" id="weAddButton">
+              <button onclick="addNewWEField()" class="btn btn-primary btn-sm">
+                Add
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group mt-2" id="aq">
+            <label for="">Academic Qualification</label>
+            <textarea
+              type="text"
+              class="form-control eqField"
+              placeholder="Enter Here"
+              rows="2"
+            ></textarea>
+
+            <div class="container text-center mt-3" id="aqAddButton">
+              <button onclick="addNewAQField()" class="btn btn-primary btn-sm">
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container text-center my-3">
+        <div onclick="generateCV()" class="btn btn-primary btn-lg">
+          Generate CV
+        </div>
+      </div>
+    </div>
+
+    <!-- cv template -->
+    <div class="container" id="cv-template">
+      <div class="row">
+        <div class="col-md-4 text-center py-5 background">
+          <img src="img/profile_icon.png" alt="" class="img-fluid myimg" id="imgTemplate" />
+          <div class="container">
+            <p id="nameT1">Ashi Kaushik</p>
+            <p id="contactT">+917986884565</p>
+            <p id="addressT">13334/234234 Sector 35 Noida, INDIA</p>
+
+            <hr />
+
+            <p>
+              <a href="https://www.facebook.com/Ashi Kaushik" id="fbT"
+                >https://www.facebook.com/Ashi Kaushik</a
+              >
+            </p>
+
+            <p>
+              <a href="https://www.Instagram.com" id="instaT">Instagram</a>
+            </p>
+
+            <p>
+              <a
+                href="https://www.linkedin.com/in/
+                        ashi-kaushik-🇮🇳-12957a21b"
+                id="linkedT"
+                >https://www.linkedin.com/in/ ashi-kaushik-🇮🇳-12957a21b
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-8 py-5">
+          <h1 class="text-center" style="font-weight: 980;" id="nameT2">
+            Ashi Kaushik
+          </h1>
+
+          <!-- objective card -->
+          <div class="card mt-4">
+            <div class="card-header background">
+              <h3>Objective</h3>
+            </div>
+            <div class="card-body">
+              <p id="objectiveT">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Ducimus, aliquid architecto sunt temporibus ea pariatur
+                exercitationem non. Quasi quaerat consectetur voluptas facilis.
+              </p>
+            </div>
+          </div>
+
+          <!-- work experience -->
+          <div class="card mt-4">
+            <div class="card-header background">
+              <h3>Work Experience</h3>
+            </div>
+            <div class="card-body">
+              <ul id="weT">
+                <li>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Magnam molestias sapiente quia cupiditate alias impedit,
+                  quaerat, ipsam necessitatibus, incidunt itaque repellendus
+                  rerum.
+                </li>
+                <li>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Magnam molestias sapiente quia cupiditate alias impedit,
+                  quaerat, ipsam necessitatibus, incidunt itaque repellendus
+                  rerum.
+                </li>
+                <li>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Magnam molestias sapiente quia cupiditate alias impedit,
+                  quaerat, ipsam necessitatibus, incidunt itaque repellendus
+                  rerum.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Academic Qualification -->
+          <div class="card mt-4">
+            <div class="card-header background">
+              <h3>Academic Qualification</h3>
+            </div>
+            <div class="card-body">
+              <ul id="aqT">
+                <li>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Magnam molestias sapiente quia cupiditate alias impedit,
+                  quaerat, ipsam necessitatibus, incidunt itaque repellendus
+                  rerum.
+                </li>
+                <li>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Magnam molestias sapiente quia cupiditate alias impedit,
+                  quaerat, ipsam necessitatibus, incidunt itaque repellendus
+                  rerum.
+                </li>
+                <li>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Magnam molestias sapiente quia cupiditate alias impedit,
+                  quaerat, ipsam necessitatibus, incidunt itaque repellendus
+                  rerum.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="container mt-3 text-center">
+            <button onclick="printCV()" class="btn background">
+              Print CV
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- custom js -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
